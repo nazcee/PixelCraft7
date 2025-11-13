@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PixelCraft | Enerjik ve Modern</title>
+  <meta name="description" content="Markanızı öne çıkaran profesyonel logo tasarımı. Enerjik, modern ve dikkat çekici tasarımlar. Hemen teklif alın.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#FF6F61;      /* Turuncu - enerjik */
+      --secondary:#1E90FF;    /* Mavi - modern, güven veren */
+      --accent:#FFD700;       /* Altın - vurgu */
+      --bg-dark:#0F1320;      /* Koyu arka plan kontrast */
+      --text:#FFFFFF;
+      --muted:#DCE6F9;
+    }
+
+    /* Global ve hareketli arka plan */
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:var(--text);
+      background: linear-gradient(270deg, var(--primary), var(--secondary), var(--accent));
+      background-size:600% 600%;
+      animation: gradientMove 14s ease infinite;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    @keyframes gradientMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .container{width:92%;max-width:1200px;margin:0 auto;}
+    .pill{display:inline-block;padding:10px 18px;border-radius:999px;font-weight:600;transition:.25s;}
+    .btn-primary{background:#fff;color:var(--secondary);box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .btn-primary:hover{background:var(--secondary);color:#fff;transform:translateY(-2px);}
+    .btn-ghost{border:2px solid #fff;color:#fff;}
+    .btn-ghost:hover{background:#ffffff22;}
+
+    /* Navbar */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      backdrop-filter:saturate(160%) blur(8px);
+      background:#00000033;
+      border-bottom:1px solid #ffffff22;
+    }
+    nav .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+    .logo-mark{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;}
+    .logo-mark .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:conic-gradient(from 0deg,var(--primary),var(--secondary),var(--accent),var(--primary));
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg);}}
+
+    .nav-links{display:flex;gap:18px;}
+    .nav-links a{padding:8px 10px;border-radius:10px;}
+    .nav-links a:hover{background:#ffffff22;}
+
+    /* Hero */
+    header.hero{padding:120px 0 70px;margin-top:60px; text-align:center;}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;border-radius:999px;
+      background:#00000033;border:1px solid #ffffff33;color:#fff;font-weight:600;
+    }
+    .badge .spark{
+      width:10px;height:10px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--accent));
+      box-shadow:0 0 12px var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse{50%{transform:scale(1.3);filter:brightness(1.3);} }
+
+    .hero h1{
+      font-size: clamp(36px,6vw,64px);
+      margin:18px auto;
+      max-width:1000px;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:-.5px;
+      animation: popIn 1s ease-out forwards;
+    }
+    @keyframes popIn{
+      0%{opacity:0;transform:scale(.7);}
+      100%{opacity:1;transform:scale(1);}
+    }
+
+    .hero p.lead{
+      max-width:820px;margin:0 auto 26px;
+      font-size: clamp(16px,2.5vw,20px);
+      color:var(--muted);
+      animation: glowText 2.8s ease-in-out infinite;
+    }
+    @keyframes glowText{
+      0%{color:#fff;}
+      50%{color:var(--accent);}
+      100%{color:#fff;}
+    }
+    .hero .cta{display:flex;gap:14px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+    .hero .stats{display:flex;gap:26px;justify-content:center;margin-top:24px;flex-wrap:wrap;color:#fff;}
+    .stat{background:#00000033;border:1px solid #ffffff22;border-radius:16px;padding:12px 18px;}
+    .stat b{font-size:18px;}
+
+    /* Sections */
+    section{padding:70px 0;}
+    .section-title{text-align:center;margin-bottom:30px;}
+    .section-title h2{font-size:clamp(28px,4.5vw,40px);margin:0 0 10px;font-weight:800;}
+    .section-title p{color:#f4f7ff;}
+
+    /* Hizmet kartları */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){.grid{grid-template-columns:1fr;} }
+
+    .card{
+      background:#0c1020aa;border:1px solid #ffffff22;color:#fff;
+      border-radius:18px; padding:20px; position:relative; overflow:hidden;
+      box-shadow:0 12px 28px rgba(0,0,0,.25);
+    }
+    .card::after{
+      content:""; position:absolute; inset:-40% auto auto -40%;
+      width:140px;height:140px;border-radius:50%;
+      background: radial-gradient(circle, var(--secondary), transparent 60%);
+      opacity:.25; filter:blur(10px); transform:rotate(15deg);
+    }
+    .card h3{margin:6px 0 8px;font-size:22px;}
+    .card p{color:#d8e3ff;}
+    .price{margin-top:10px;font-weight:800;font-size:20px;color:#fff;}
+    .features{margin-top:10px;display:grid;gap:8px;}
+    .features li{list-style:none; display:flex; align-items:center; gap:8px; color:#eaf1ff;}
+    .features li .tick{color:var(--accent);font-weight:800;}
+
+    /* Portföy */
+    .portfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    @media (max-width:960px){.portfolio{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:640px){.portfolio{grid-template-columns:repeat(2,1fr);} }
+
+    .work{
+      position:relative;border-radius:16px;overflow:hidden;
+      background:#0b1224;border:1px solid #ffffff22;
+      transform:perspective(700px) rotateX(0deg) rotateY(0deg);
+      transition: transform .35s, box-shadow .35s;
+    }
+    .work img{aspect-ratio:1/1;object-fit:cover;}
+    .work:hover{
+      transform:perspective(700px) rotateX(6deg) rotateY(-6deg) scale(1.02);
+      box-shadow:0 20px 40px rgba(0,0,0,.35);
+    }
+    .work .overlay{
+      position:absolute;inset:0;background:linear-gradient(to top, #00000088, transparent 60%);
+      opacity:0;transition:.3s;display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:600;
+    }
+    .work:hover .overlay{opacity:1;}
+
+    /* Yorumlar */
+    .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    @media (max-width:960px){.testi{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){.testi{grid-template-columns:1fr;} }
+    .quote{
+      background:#0c1020aa;border:1px solid #ffffff22;border-radius:18px;padding:18px;
+    }
+    .quote p{color:#e6efff;}
+    .quote .who{margin-top:10px;font-weight:600;color:#fff;}
+
+    /* SSS */
+    .faq{display:grid;gap:12px;}
+    .faq .item{
+      background:#0c1020aa;border:1px solid #ffffff22;border-radius:16px;padding:16px;
+    }
+    .faq .q{font-weight:700;margin-bottom:8px;}
+    .faq .a{color:#e6efff;}
+
+    /* İletişim */
+    .contact{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start;
+    }
+    @media (max-width:860px){.contact{grid-template-columns:1fr;} }
+    form{
+      background:#0c1020aa;border:1px solid #ffffff22;border-radius:18px;padding:18px;
+    }
+    label{display:block;font-weight:600;margin:8px 0 6px;}
+    input,textarea{
+      width:100%;padding:12px;border-radius:12px;border:1px solid #ffffff33;background:#0b1224;color:#fff;
+    }
+    textarea{min-height:120px;resize:vertical;}
+    form .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;}
+
+    /* WhatsApp sabit buton */
+    .whatsapp{
+      position:fixed;right:18px;bottom:18px;z-index:60;
+      background:#25D366;color:#0b1224;border-radius:999px;padding:12px 16px;font-weight:700;
+      box-shadow:0 10px 24px rgba(0,0,0,.28); transition:.25s;
+    }
+    .whatsapp:hover{filter:brightness(1.1);transform:translateY(-2px);}
+
+    /* Giriş efektleri */
+    .reveal{opacity:0;transform:translateY(24px);}
+    .reveal.show{opacity:1;transform:none;transition:opacity .7s ease, transform .7s ease;}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container row">
+      <div class="logo-mark">
+        <span class="dot"></span>
+        <span>LOGO TASARIMI</span>
+      </div>
+      <div class="nav-links">
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#portfoy">Portföy</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a href="#sss">SSS</a>
+        <a href="#iletisim" class="pill btn-ghost">Teklif Al</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <span class="badge"><span class="spark"></span> Enerjik & Modern Logo Tasarımı</span>
+      <h1>Markanızı ilk bakışta hatırlatan, akılda kalan ve profesyonel logolar.</h1>
+      <p class="lead">Turuncu ve mavi tonlarda dinamik bir tasarım anlayışıyla; minimal, kurumsal ve kreatif logolar tasarlıyorum. Dikkat çekici animasyonlar ve modern tipografi ile siteniz de ışıldasın.</p>
+
+      <div class="cta">
+        <a href="#iletisim" class="pill btn-primary">Hemen teklif al</a>
+        <a href="#portfoy" class="pill btn-ghost">Portföyü gör</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>150+</b><br>Müşteri</div>
+        <div class="stat"><b>4.9/5</b><br>Memnuniyet</div>
+        <div class="stat"><b>48 saat</b><br>İlk taslak</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hizmetler -->
+  <section id="hizmetler">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Logo paketleri</h2>
+        <p>İhtiyacınıza göre üç farklı paket. Hepsi telif hakları size ait olarak teslim edilir.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Minimal Paket</h3>
+          <p>Sade, net ve zamansız. Startuplar ve modern markalar için.</p>
+          <ul class="features">
+            <li><span class="tick">✓</span> 2 konsept</li>
+            <li><span class="tick">✓</span> 2 revizyon</li>
+            <li><span class="tick">✓</span> PNG, SVG, PDF</li>
+          </ul>
+          <div class="price">Başlangıç: 2.100 ₺</div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Kurumsal Paket</h3>
+          <p>Güçlü tipografi ve sağlam kurumsal hissiyat.</p>
+          <ul class="features">
+            <li><span class="tick">✓</span> 3 konsept</li>
+            <li><span class="tick">✓</span> 3 revizyon</li>
+            <li><span class="tick">✓</span> Renk paleti & kullanım kılavuzu</li>
+          </ul>
+          <div class="price">Başlangıç: 2.900 ₺</div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Kreatif Paket</h3>
+          <p>İlgi çekici, özgün ve yüksek kontrastlı tasarımlar.</p>
+          <ul class="features">
+            <li><span class="tick">✓</span> 4 konsept</li>
+            <li><span class="tick">✓</span> Sınırsız revizyon (2 hafta)</li>
+            <li><span class="tick">✓</span> Hareketli logo (GIF/MP4)</li>
+          </ul>
+          <div class="price">Başlangıç: 7.300 ₺</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portföy -->
+  <section id="portfoy">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Portföy</h2>
+        <p>Seçili işler. Üzerine geldiğinizde hafif 3D hareket ve başlık görünür.</p>
+      </div>
+
+      <div class="portfolio">
+        <!-- Görsellerini img/ klasörüne ekleyip yolları düzenle -->
+        <a class="work reveal" href="#" aria-label="Proje 1">
+          <img src="img/logo1.png" alt="Minimal teknoloji girişimi logosu">
+          <div class="overlay">Minimal teknoloji girişimi logosu</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 2">
+          <img src="img/logo2.png" alt="Logo örneği 2">
+          <div class="overlay">Kurumsal finans markası</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 3">
+          <img src="img/logo3.png" alt="Logo örneği 3">
+          <div class="overlay">Yaratıcı kahve dükkanı</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 4">
+          <img src="img/logo4.png" alt="Logo örneği 4">
+          <div class="overlay">Spor & sağlık uygulaması</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 5">
+          <img src="img/logo5.png" alt="Logo örneği 5">
+          <div class="overlay">Moda ve stil blogu</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 6">
+          <img src="img/logo6.png" alt="Logo örneği 6">
+          <div class="overlay">Oyuncu ekipmanları</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 7">
+          <img src="img/logo7.png" alt="Logo örneği 7">
+          <div class="overlay">Eğitim platformu</div>
+        </a>
+        <a class="work reveal" href="#" aria-label="Proje 8">
+          <img src="img/logo8.png" alt="Logo örneği 8">
+          <div class="overlay">Dijital ajans</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yorumlar -->
+  <section id="yorumlar">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Müşteri yorumları</h2>
+        <p>Memnuniyet odaklı süreç ve hızlı dönüş.</p>
+      </div>
+
+      <div class="testi">
+        <div class="quote reveal">
+          <p>Beklediğimiz kurumsal hissi tam yakaladı. Renk paleti ve tipografi rehberi çok yardımcı oldu.</p>
+          <div class="who">— H. Demir, Finans & Yatırım</div>
+        </div>
+        <div class="quote reveal">
+          <p>48 saat içinde ilk taslak geldi ve iki revizyonda hedefe ulaştık. Harika iletişim.</p>
+          <div class="who">— S. Kaya, Startup Kurucu</div>
+        </div>
+        <div class="quote reveal">
+          <p>Kreatif paketle aldığımız hareketli logo sosyal medyada fark yarattı.</p>
+          <div class="who">— A. Yıldız, Dijital Ajans</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section id="sss">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Sık sorulan sorular</h2>
+        <p>Süreç, teslim ve haklar hakkında.</p>
+      </div>
+
+      <div class="faq">
+        <div class="item reveal">
+          <div class="q">Teslim süresi nedir?</div>
+          <div class="a">İlk taslak genelde 48 saat içinde gelir. Paket ve yoğunluğa göre toplam süreç 3–10 gün arasında değişir.</div>
+        </div>
+        <div class="item reveal">
+          <div class="q">Hangi formatlarda teslim ediyorsunuz?</div>
+          <div class="a">Vektör ve piksel formatları: SVG, PDF, PNG. Kreatif pakette GIF/MP4 hareketli versiyon dahildir.</div>
+        </div>
+        <div class="item reveal">
+          <div class="q">Telif hakları kime ait?</div>
+          <div class="a">Final logonun tüm kullanım ve telif hakları sözleşme ile size devredilir.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section id="iletisim">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Teklif al</h2>
+        <p>Kısaca ihtiyacınızı yazın, aynı gün dönüş yapayım.</p>
+      </div>
+
+      <div class="contact">
+        <form class="reveal" onsubmit="sendMessage(event)">
+          <label>Adınız</label>
+          <input type="text" name="name" placeholder="Ad Soyad" required>
+          <label>E-posta</label>
+          <input type="email" name="email" placeholder="ornek@mail.com" required>
+          <label>Marka adı</label>
+          <input type="text" name="brand" placeholder="Marka / Şirket adı" required>
+          <label>İhtiyaç</label>
+          <textarea name="need" placeholder="Markanızın sektörü, istediğiniz stil (minimal, kurumsal, kreatif), renk tercihleri..." required></textarea>
+          <div class="actions">
+            <button class="pill btn-primary" type="submit">Gönder</button>
+            <a class="pill btn-ghost" href="mailto:PixelCraft7@gmail.com?subject=Logo%20Teklif&body=Merhaba,%20markam%20i%C3%A7in%20logo%20tasar%C4%B1m%C4%B1%20talep%20ediyorum...">E-posta ile</a>
+          </div>
+          <small style="display:block;margin-top:8px;color:#dce6f9;">KVKK notu: Bilgileriniz yalnızca dönüş yapmak için kullanılır.</small>
+        </form>
+
+        <div class="card reveal">
+          <h3>İletişim</h3>
+          <p style="color:#eaf1ff;">İstanbul, Türkiye</p>
+          <p style="color:#eaf1ff;">E-posta: PixelCraft7@gmail.com </p>
+          <p style="color:#eaf1ff;">Mesaj: WhatsApp üzerinden 10:00–19:00</p>
+          <div style="margin-top:10px;">
+            <a class="pill btn-primary" href="https://wa.me/905342655105" target="_blank" rel="noopener">WhatsApp’tan yaz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp sabit -->
+  <a class="whatsapp" href="https://wa.me/905342655105" target="_blank" rel="noopener">WhatsApp</a>
+
+  <script>
+    // Scroll reveal
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target);}
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Basit form "gönder" simülasyonu (gerçek backend yok)
+    function sendMessage(ev){
+      ev.preventDefault();
+      const f=ev.target;
+      const data={
+        name:f.name.value.trim(),
+        email:f.email.value.trim(),
+        brand:f.brand.value.trim(),
+        need:f.need.value.trim()
+      };
+      // WhatsApp’a hızlı yönlendirme (metni doldurarak)
+      const msg=encodeURIComponent(`Merhaba, ben ${data.name}.
+Marka: ${data.brand}
+E-posta: ${data.email}
+İhtiyaç: ${data.need}`);
+      window.open(`https://wa.me/905342655105?text=${msg}`,'_blank');
+      alert('Teşekkürler! WhatsApp mesajı açılıyor, oradan devam edelim.');
+      f.reset();
+    }
+  </script>
+</body>
+</html>
